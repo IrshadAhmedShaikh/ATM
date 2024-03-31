@@ -1,7 +1,6 @@
-
-
+#! /usr/bin/env node
 import inquirer from "inquirer";
-let myBalance = 15000;
+let myBalance = 15640;
 let myPin = 4455;
 console.log("Wellcome To IR ATM Machine");
 let pinAnswer = await inquirer.prompt([
@@ -34,11 +33,11 @@ if (pinAnswer.pin === myPin) {
         }
         else {
             myBalance -= amountans.amount;
-            console.log(`your remaing balace is ${myBalance}`);
+            console.log(`your remaing balace is: ${myBalance}`);
         }
     }
     else if (operationans.operation === "check balance") {
-        console.log(`your current balance is ${myBalance}`);
+        console.log(`your current balance is: ${myBalance}`);
     }
     else if (operationans.operation === "fastcash") {
         let amountans = await inquirer.prompt([
@@ -50,7 +49,7 @@ if (pinAnswer.pin === myPin) {
             },
         ]);
         myBalance -= amountans.amount;
-        console.log(`fastcash your remaing balance is ${myBalance}`);
+        console.log(`fastcash your remaing balance is:${myBalance}`);
     }
 }
 else {
