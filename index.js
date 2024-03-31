@@ -1,14 +1,11 @@
 #! /usr/bin/env node
 "use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
 Object.defineProperty(exports, "__esModule", { value: true });
-const inquirer_1 = __importDefault(require("inquirer"));
-let myBalance = 15640;
-let myPin = 4455;
+var inquirer_1 = require("inquirer");
+var myBalance = 15640;
+var myPin = 4455;
 console.log("Wellcome To IR ATM Machine");
-let pinAnswer = await inquirer_1.default.prompt([
+var pinAnswer = await inquirer_1.default.prompt([
     {
         name: "pin",
         message: "Enter Your Pin Code",
@@ -17,7 +14,7 @@ let pinAnswer = await inquirer_1.default.prompt([
 ]);
 if (pinAnswer.pin === myPin) {
     console.log("correct pin code");
-    let operationans = await inquirer_1.default.prompt([
+    var operationans = await inquirer_1.default.prompt([
         {
             name: "operation",
             message: "select your option",
@@ -26,7 +23,7 @@ if (pinAnswer.pin === myPin) {
         },
     ]);
     if (operationans.operation === "withdraw") {
-        let amountans = await inquirer_1.default.prompt([
+        var amountans = await inquirer_1.default.prompt([
             {
                 name: "amount",
                 message: "enter your amount",
@@ -38,14 +35,14 @@ if (pinAnswer.pin === myPin) {
         }
         else {
             myBalance -= amountans.amount;
-            console.log(`your remaing balace is: ${myBalance}`);
+            console.log("your remaing balace is: ".concat(myBalance));
         }
     }
     else if (operationans.operation === "check balance") {
-        console.log(`your current balance is: ${myBalance}`);
+        console.log("your current balance is: ".concat(myBalance));
     }
     else if (operationans.operation === "fastcash") {
-        let amountans = await inquirer_1.default.prompt([
+        var amountans = await inquirer_1.default.prompt([
             {
                 name: "amount",
                 message: "choose your amount",
@@ -54,7 +51,7 @@ if (pinAnswer.pin === myPin) {
             },
         ]);
         myBalance -= amountans.amount;
-        console.log(`fastcash your remaing balance is:${myBalance}`);
+        console.log("fastcash your remaing balance is:".concat(myBalance));
     }
 }
 else {
