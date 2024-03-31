@@ -1,11 +1,9 @@
 #! /usr/bin/env node
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-var inquirer_1 = require("inquirer");
-var myBalance = 15640;
-var myPin = 4455;
+import inquirer from "inquirer";
+let myBalance = 15640;
+let myPin = 4455;
 console.log("Wellcome To IR ATM Machine");
-var pinAnswer = await inquirer_1.default.prompt([
+let pinAnswer = await inquirer.prompt([
     {
         name: "pin",
         message: "Enter Your Pin Code",
@@ -14,7 +12,7 @@ var pinAnswer = await inquirer_1.default.prompt([
 ]);
 if (pinAnswer.pin === myPin) {
     console.log("correct pin code");
-    var operationans = await inquirer_1.default.prompt([
+    let operationans = await inquirer.prompt([
         {
             name: "operation",
             message: "select your option",
@@ -23,7 +21,7 @@ if (pinAnswer.pin === myPin) {
         },
     ]);
     if (operationans.operation === "withdraw") {
-        var amountans = await inquirer_1.default.prompt([
+        let amountans = await inquirer.prompt([
             {
                 name: "amount",
                 message: "enter your amount",
@@ -35,14 +33,14 @@ if (pinAnswer.pin === myPin) {
         }
         else {
             myBalance -= amountans.amount;
-            console.log("your remaing balace is: ".concat(myBalance));
+            console.log(`your remaing balace is: ${myBalance}`);
         }
     }
     else if (operationans.operation === "check balance") {
-        console.log("your current balance is: ".concat(myBalance));
+        console.log(`your current balance is: ${myBalance}`);
     }
     else if (operationans.operation === "fastcash") {
-        var amountans = await inquirer_1.default.prompt([
+        let amountans = await inquirer.prompt([
             {
                 name: "amount",
                 message: "choose your amount",
@@ -51,7 +49,7 @@ if (pinAnswer.pin === myPin) {
             },
         ]);
         myBalance -= amountans.amount;
-        console.log("fastcash your remaing balance is:".concat(myBalance));
+        console.log(`fastcash your remaing balance is:${myBalance}`);
     }
 }
 else {
