@@ -1,7 +1,7 @@
 {
-  "name":"irshad4-atm",
-  "version": "2.1.1",
-  "description": "",
+  "name":"atm",
+  "version": "1.1.1",
+  "description": " This is a atm machine",
   "main": "index.js",
   "type": "module",
   "bin":"index.js",
